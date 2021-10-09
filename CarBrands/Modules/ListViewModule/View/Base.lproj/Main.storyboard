@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Common List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="listViewController" id="BYZ-38-t0r" customClass="CZCommonListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oYt-6L-8M4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="UaW-KY-nE4">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wr-VG-BWp">
+                                <rect key="frame" x="129.5" y="436" width="155" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whq-4e-vZF">
+                                <rect key="frame" x="182" y="376" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="SSx-C2-nFJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="h0f-Ob-2vk"/>
+                                </constraints>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tDS-HO-Ep3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oYt-6L-8M4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="36B-I9-VRs"/>
+                            <constraint firstItem="9wr-VG-BWp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3Ep-od-OBA"/>
+                            <constraint firstItem="oYt-6L-8M4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CKQ-0n-Xv8"/>
+                            <constraint firstItem="Whq-4e-vZF" firstAttribute="centerX" secondItem="9wr-VG-BWp" secondAttribute="centerX" id="K7y-gr-V2G"/>
+                            <constraint firstItem="9wr-VG-BWp" firstAttribute="top" secondItem="Whq-4e-vZF" secondAttribute="bottom" constant="10" id="OzD-3D-OSg"/>
+                            <constraint firstItem="UaW-KY-nE4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ty6-Ih-SrM"/>
+                            <constraint firstItem="oYt-6L-8M4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i7u-24-6OI"/>
+                            <constraint firstItem="UaW-KY-nE4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rWR-t1-GLG"/>
+                            <constraint firstItem="9wr-VG-BWp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ulJ-U3-B73"/>
+                            <constraint firstItem="oYt-6L-8M4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zZe-Qz-EqW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listTableView" destination="oYt-6L-8M4" id="sR6-2V-YGf"/>
+                        <outlet property="loadingIndicator" destination="UaW-KY-nE4" id="kGy-U6-qGf"/>
+                        <outlet property="messageLabel" destination="9wr-VG-BWp" id="Yr1-y2-6Go"/>
+                        <outlet property="refreshButton" destination="Whq-4e-vZF" id="ql4-fJ-Twn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="80.357142857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
